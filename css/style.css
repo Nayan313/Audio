@@ -494,7 +494,7 @@ a {
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
-    background: rgb(88, 116, 252);
+    background: rgba(233,108,123,1);
     box-shadow: inset 0px -190px 130px #191921;
 }
 
@@ -803,6 +803,9 @@ a {
 .Lyrics{
     display: none;
 }
+.mobile-player{
+    display: none;
+}
 @media (max-width: 600px) {
 
     .sidebar,.FullCloseBtn,
@@ -893,6 +896,7 @@ a {
 .mobile-player>.upper-part>.detail{
 width: 60%;
 display: flex;
+color: #fff;
 flex-direction: column;
 }
 .pausebtn1{
@@ -1003,7 +1007,7 @@ flex-direction: column;
         margin: 2.5%;
         height: 300px;
         border-radius: 5px;
-        background: rgba(43, 43, 43);
+        background: rgba(233,108,123,1);
     }
     .fullPlayer>.Lyrics>p{
         width: 90%;
