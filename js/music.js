@@ -26,6 +26,7 @@ let MobileName = document.querySelector(".mobileName");
 let MobilePlayer = document.querySelector(".mobile-player");
 let MobileAlbum = document.querySelector(".mobileAlbum");
 let LyricsSection = document.querySelector(".Lyrics");
+let MobileSeek = document.querySelector(".seek11");
 
 PauseIcon.addEventListener("click", () => {
   music.pause();
@@ -58,9 +59,10 @@ function Pause1() {
   PlayIcon1.style.display = "block";
   PauseIcon1.style.display = "none";
 }
-
-
-
+music.addEventListener("pause",()=> {
+  PauseIcon1.style.display = "block";
+  PlayIcon1.style.display = "none"
+})
 PrevBtn.addEventListener("click", () => {
   MusicId -= 1;
 
@@ -88,34 +90,38 @@ PrevBtn.addEventListener("click", () => {
     music.play();
   });
   GetSongMusic.forEach((ResultFilterMusicName) => {
-    let { SongName, AlbumName, Poster, FullPoster } = ResultFilterMusicName;
     // 1
     MusicName.innerHTML = ResultFilterMusicName.SongName;
     MobileName.innerHTML = ResultFilterMusicName.SongName;
-    document.title = ResultFilterMusicName.SongName + "-Audio";
+    document.title = ResultFilterMusicName.SongName + "-NS_Audio";
     MobileAlbum.innerHTML = ResultFilterMusicName.AlbumName;
     MusicAlbum.innerHTML = ResultFilterMusicName.AlbumName;
     MusicImg.innerHTML = ResultFilterMusicName.Poster;
     MobileMusicImg.innerHTML = ResultFilterMusicName.Poster;
+    MusicName.innerHTML = ResultFilterMusicName.SongName;
     FullBack.style.background = ResultFilterMusicName.FullPoster;
     SEEK.style.background = ResultFilterMusicName.FullPoster;
+    MobileSeek.style.background = ResultFilterMusicName.FullPoster;
     MAIN.style.background = ResultFilterMusicName.FullPoster;
-    LyricsSection.style.background = ResultFilterMusicName.FullPoster;
+    LyricsSection.style.background = ResultFilterMusicName.LightColor;
+    MobilePlayer.style.background = ResultFilterMusicName.LightColor;
   });
   GetEngMusic.forEach((ResultEngFilterMusic) => {
     let { SongName, AlbumName, Poster, FullPoster } = ResultEngFilterMusic;
     // 2
     MusicName.innerHTML = ResultEngFilterMusic.SongName;
     MobileName.innerHTML = ResultEngFilterMusic.SongName;
-    document.title = ResultEngFilterMusic.SongName + "-Audio";
+    document.title = ResultEngFilterMusic.SongName + "-NS_Audio";
     MusicAlbum.innerHTML = ResultEngFilterMusic.AlbumName;
     MobileAlbum.innerHTML = ResultEngFilterMusic.AlbumName;
     MusicImg.innerHTML = ResultEngFilterMusic.Poster;
     MobileMusicImg.innerHTML = ResultEngFilterMusic.Poster;
     FullBack.style.background = ResultEngFilterMusic.FullPoster;
     SEEK.style.background = ResultEngFilterMusic.FullPoster;
+    MobileSeek.style.background = ResultEngFilterMusic.FullPoster;
     MAIN.style.background = ResultEngFilterMusic.FullPoster;
-    LyricsSection.style.background = ResultEngFilterMusic.FullPoster;
+    LyricsSection.style.background = ResultEngFilterMusic.LightColor;
+    MobilePlayer.style.background = ResultEngFilterMusic.LightColor;
   });
 });
 NextBtn.addEventListener("click", () => {
@@ -144,11 +150,10 @@ NextBtn.addEventListener("click", () => {
     music.play();
   });
   GetSongMusic.forEach((ResultFilterMusicName) => {
-    let { SongName, AlbumName, Poster, FullPoster } = ResultFilterMusicName;
     // 3
     MusicName.innerHTML = ResultFilterMusicName.SongName;
     MobileName.innerHTML = ResultFilterMusicName.SongName;
-    document.title = ResultFilterMusicName.SongName + "-Audio";
+    document.title = ResultFilterMusicName.SongName + "-NS_Audio";
     MobileAlbum.innerHTML = ResultFilterMusicName.AlbumName;
     MusicAlbum.innerHTML = ResultFilterMusicName.AlbumName;
     MusicImg.innerHTML = ResultFilterMusicName.Poster;
@@ -156,23 +161,29 @@ NextBtn.addEventListener("click", () => {
     MusicName.innerHTML = ResultFilterMusicName.SongName;
     FullBack.style.background = ResultFilterMusicName.FullPoster;
     SEEK.style.background = ResultFilterMusicName.FullPoster;
+    MobileSeek.style.background = ResultFilterMusicName.FullPoster;
     MAIN.style.background = ResultFilterMusicName.FullPoster;
-    LyricsSection.style.background = ResultFilterMusicName.FullPoster;
+    LyricsSection.style.background = ResultFilterMusicName.LightColor;
+    MobilePlayer.style.background = ResultFilterMusicName.LightColor;
+  
   });
   GetEngMusic.forEach((ResultEngFilterMusic) => {
     let { SongName, AlbumName, Poster, FullPoster } = ResultEngFilterMusic;
     // 4
+
     MusicName.innerHTML = ResultEngFilterMusic.SongName;
     MobileName.innerHTML = ResultEngFilterMusic.SongName;
-    document.title = ResultEngFilterMusic.SongName + "-Audio";
+    document.title = ResultEngFilterMusic.SongName + "-NS_Audio";
     MusicAlbum.innerHTML = ResultEngFilterMusic.AlbumName;
     MobileAlbum.innerHTML = ResultEngFilterMusic.AlbumName;
     MusicImg.innerHTML = ResultEngFilterMusic.Poster;
     MobileMusicImg.innerHTML = ResultEngFilterMusic.Poster;
     FullBack.style.background = ResultEngFilterMusic.FullPoster;
     SEEK.style.background = ResultEngFilterMusic.FullPoster;
+    MobileSeek.style.background = ResultEngFilterMusic.FullPoster;
     MAIN.style.background = ResultEngFilterMusic.FullPoster;
-    LyricsSection.style.background = ResultEngFilterMusic.FullPoster;
+    LyricsSection.style.background = ResultEngFilterMusic.LightColor;
+    MobilePlayer.style.background = ResultEngFilterMusic.LightColor;
   });
 });
 
@@ -209,7 +220,7 @@ Array.from(document.getElementsByClassName("song-play-btn")).forEach(
         // 5
         MusicName.innerHTML = ResultFilterMusicName.SongName;
         MobileName.innerHTML = ResultFilterMusicName.SongName;
-        document.title = ResultFilterMusicName.SongName + "-Audio";
+        document.title = ResultFilterMusicName.SongName + "-NS_Audio";
         MobileAlbum.innerHTML = ResultFilterMusicName.AlbumName;
         MusicAlbum.innerHTML = ResultFilterMusicName.AlbumName;
         MusicImg.innerHTML = ResultFilterMusicName.Poster;
@@ -217,23 +228,27 @@ Array.from(document.getElementsByClassName("song-play-btn")).forEach(
         MusicName.innerHTML = ResultFilterMusicName.SongName;
         FullBack.style.background = ResultFilterMusicName.FullPoster;
         SEEK.style.background = ResultFilterMusicName.FullPoster;
+        MobileSeek.style.background = ResultFilterMusicName.FullPoster;
         MAIN.style.background = ResultFilterMusicName.FullPoster;
-        LyricsSection.style.background = ResultFilterMusicName.FullPoster;
+        LyricsSection.style.background = ResultFilterMusicName.LightColor;
+        MobilePlayer.style.background = ResultFilterMusicName.LightColor;
       });
       GetEngMusic.forEach((ResultEngFilterMusic) => {
         let { SongName, AlbumName, Poster, FullPoster } = ResultEngFilterMusic;
         // 6
         MusicName.innerHTML = ResultEngFilterMusic.SongName;
         MobileName.innerHTML = ResultEngFilterMusic.SongName;
-        document.title = ResultEngFilterMusic.SongName + "-Audio";
+        document.title = ResultEngFilterMusic.SongName + "-NS_Audio";
         MusicAlbum.innerHTML = ResultEngFilterMusic.AlbumName;
         MobileAlbum.innerHTML = ResultEngFilterMusic.AlbumName;
         MusicImg.innerHTML = ResultEngFilterMusic.Poster;
         MobileMusicImg.innerHTML = ResultEngFilterMusic.Poster;
         FullBack.style.background = ResultEngFilterMusic.FullPoster;
         SEEK.style.background = ResultEngFilterMusic.FullPoster;
+        MobileSeek.style.background = ResultEngFilterMusic.FullPoster;
         MAIN.style.background = ResultEngFilterMusic.FullPoster;
-        LyricsSection.style.background = ResultEngFilterMusic.FullPoster;
+        LyricsSection.style.background = ResultEngFilterMusic.LightColor;
+        MobilePlayer.style.background = ResultEngFilterMusic.LightColor;
       });
     });
   }
@@ -270,6 +285,7 @@ music.addEventListener("timeupdate", () => {
   seekControl.value = ProgressBar;
   let SeekBar = seekControl.value;
   seek.style.width = `${SeekBar}%`;
+  MobileSeek.style.width = `${SeekBar}%`;
   dot.style.left = `${SeekBar}%`;
   seekControl.addEventListener("change", () => {
     music.currentTime = (seekControl.value * music.duration) / 100;
@@ -277,4 +293,61 @@ music.addEventListener("timeupdate", () => {
   let SeekBar1 = seekControl.value;
   console.log(SeekBar1);
   seek11.style.width = `${SeekBar1}%`;
+});
+
+music.addEventListener("ended", () => {
+  MusicId++;
+
+  const GetSongMusic = TopSongData.filter((filterMusic) => {
+    return filterMusic.id == MusicId;
+  });
+  GetSongMusic.forEach((ResultFilterMusic) => {
+    let { Music } = ResultFilterMusic;
+    MusicSrc = Music;
+    music.src = `${MusicSrc}`;
+    music.play();
+  });
+  let GetEngMusic = EnglishSongData.filter((filterEngMusic) => {
+    return filterEngMusic.id == MusicId;
+  });
+  GetEngMusic.forEach((ResultEngFilterMusic) => {
+    let { Music } = ResultEngFilterMusic;
+    MusicSrc = Music;
+    music.src = `${MusicSrc}`;
+    music.play();
+  });
+  GetSongMusic.forEach((ResultFilterMusicName) => {
+    // 3
+    MusicName.innerHTML = ResultFilterMusicName.SongName;
+    MobileName.innerHTML = ResultFilterMusicName.SongName;
+    document.title = ResultFilterMusicName.SongName + "-NS_Audio";
+    MobileAlbum.innerHTML = ResultFilterMusicName.AlbumName;
+    MusicAlbum.innerHTML = ResultFilterMusicName.AlbumName;
+    MusicImg.innerHTML = ResultFilterMusicName.Poster;
+    MobileMusicImg.innerHTML = ResultFilterMusicName.Poster;
+    MusicName.innerHTML = ResultFilterMusicName.SongName;
+    FullBack.style.background = ResultFilterMusicName.FullPoster;
+    SEEK.style.background = ResultFilterMusicName.FullPoster;
+    MobileSeek.style.background = ResultFilterMusicName.FullPoster;
+    MAIN.style.background = ResultFilterMusicName.FullPoster;
+    LyricsSection.style.background = ResultFilterMusicName.LightColor;
+    MobilePlayer.style.background = ResultFilterMusicName.LightColor;
+  });
+  GetEngMusic.forEach((ResultEngFilterMusic) => {
+    let { SongName, AlbumName, Poster, FullPoster } = ResultEngFilterMusic;
+    // 4
+    MusicName.innerHTML = ResultEngFilterMusic.SongName;
+    MobileName.innerHTML = ResultEngFilterMusic.SongName;
+    document.title = ResultEngFilterMusic.SongName + "-NS_Audio";
+    MusicAlbum.innerHTML = ResultEngFilterMusic.AlbumName;
+    MobileAlbum.innerHTML = ResultEngFilterMusic.AlbumName;
+    MusicImg.innerHTML = ResultEngFilterMusic.Poster;
+    MobileMusicImg.innerHTML = ResultEngFilterMusic.Poster;
+    FullBack.style.background = ResultEngFilterMusic.FullPoster;
+    SEEK.style.background = ResultEngFilterMusic.FullPoster;
+    MobileSeek.style.background = ResultEngFilterMusic.FullPoster;
+    MAIN.style.background = ResultEngFilterMusic.FullPoster;
+    LyricsSection.style.background = ResultEngFilterMusic.LightColor;
+    MobilePlayer.style.background = ResultEngFilterMusic.LightColor;
+  });
 });

@@ -100,7 +100,7 @@ function FullPlayerClose() {
   MainSection.style.opacity = "1";
   MainSection.style.position = "absolute";
   Player.classList.remove("fullPlayer");
-  Player.style.display = "none";
+  Player.style.display = "flex";
   MobilePlayer.style.display = "block";
 }
 
